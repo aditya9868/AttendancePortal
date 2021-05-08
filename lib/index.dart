@@ -21,6 +21,8 @@ export 'package:attend/utils/custom_button.dart';
 export 'package:attend/utils/common-widgets.dart';
 export 'package:attend/utils/base-response.dart';
 export 'package:attend/utils/custom-scaffold.dart';
+export 'package:attend/utils/custom-appbar.dart';
+
 //User utils
 export 'package:attend/user-utils/user-model.dart';
 export 'package:attend/user-utils/cred.dart';
@@ -31,11 +33,5 @@ export 'package:attend/screens/login/login.dart';
 export 'package:attend/screens/login/textfield.dart';
 export 'package:attend/screens/login/login-provider.dart';
 
-
-
-// providers
-
-
-
-
-
+//2.Dashboard
+export 'package:attend/screens/dashboard/dashboard.dart';

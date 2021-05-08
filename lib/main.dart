@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
       ],
       child: Consumer<Credential>(
         builder: (context, cred, _) {
+          // cred.logout();
           return FutureBuilder<bool>(
               future: cred.tryAutoLogin(),
               builder: (context, snapshot) {
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
                   ),
                   routes: {},
                   home: cred.isLogin
-                      ? Login() //change to dashboard
+                      ? Dashboard() //change to dashboard
                       : snapshot.connectionState == ConnectionState.waiting
                           ? LoadingScreen()
                           : Login(),

@@ -6,10 +6,14 @@ class CustomScaffold extends StatelessWidget {
     this.isLoading = false,
     this.children = const [],
     this.padding = const EdgeInsets.symmetric(horizontal: 10),
+    this.appBar,
+    this.isScrollable = false,
   }) : super(key: key);
   final bool isLoading;
   final List<Widget> children;
   final EdgeInsetsGeometry padding;
+  final CustomAppBar appBar;
+  final bool isScrollable;
 
   @override
   Widget build(BuildContext context) {
@@ -17,17 +21,23 @@ class CustomScaffold extends StatelessWidget {
       children: [
         Scaffold(
           body: SafeArea(
-            child: Padding(
-              padding: padding,
-              child: Column(
-                children: [
-                  Expanded(
-                    child: Column(
-                      children: children,
-                    ),
-                  )
-                ],
-              ),
+            child: Column(
+              children: [
+                appBar == null ? Container() : appBar,
+                Expanded(
+                  child: isScrollable
+                      ? ListView(
+                          padding: padding,
+                          children: children,
+                        )
+                      : Padding(
+                          padding: padding,
+                          child: Column(
+                            children: children,
+                          ),
+                        ),
+                )
+              ],
             ),
           ),
         ),

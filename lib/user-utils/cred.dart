@@ -9,7 +9,6 @@ class Credential with ChangeNotifier {
       return false;
     else
       return true;
-    // to
   }
 
   Future<void> storeUserData(String usr) async {
@@ -38,7 +37,7 @@ class Credential with ChangeNotifier {
     FirebaseAuth.instance.signOut();
     final prefs = await SharedPreferences.getInstance();
     prefs.clear();
-
+    userName = null;
     notifyListeners();
   }
 
