@@ -1,6 +1,4 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:attend/index.dart';
-import 'package:attend/screens/login/login-model.dart';
 
 class LoginProvider with ChangeNotifier {
   Future<BaseResponse> login(LoginModel login) async {

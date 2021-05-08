@@ -1,5 +1,4 @@
 import 'package:attend/index.dart';
-import 'package:attend/screens/dashboard/card.dart';
 
 class Dashboard extends StatefulWidget {
   Dashboard({Key key}) : super(key: key);
@@ -24,7 +23,9 @@ class _DashboardState extends State<Dashboard> {
           title: " Scanner",
           colors: AppColor.card1,
           icon: Icons.qr_code_scanner_outlined,
-          onPressed: (){},
+          onPressed: () {
+            CommonWidgets.push(context, QrScreen());
+          },
         ),
       ],
     );
