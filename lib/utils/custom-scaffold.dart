@@ -21,23 +21,28 @@ class CustomScaffold extends StatelessWidget {
       children: [
         Scaffold(
           body: SafeArea(
-            child: Column(
-              children: [
-                appBar == null ? Container() : appBar,
-                Expanded(
-                  child: isScrollable
-                      ? ListView(
-                          padding: padding,
-                          children: children,
-                        )
-                      : Padding(
-                          padding: padding,
-                          child: Column(
-                            children: children,
-                          ),
-                        ),
-                )
-              ],
+            child: Center(
+              child: ConstrainedBox(
+                constraints: BoxConstraints(maxWidth: 500),
+                child: Column(
+                  children: [
+                    appBar == null ? Container() : appBar,
+                    Expanded(
+                      child: isScrollable
+                          ? ListView(
+                              padding: padding,
+                              children: children,
+                            )
+                          : Padding(
+                              padding: padding,
+                              child: Column(
+                                children: children,
+                              ),
+                            ),
+                    )
+                  ],
+                ),
+              ),
             ),
           ),
         ),

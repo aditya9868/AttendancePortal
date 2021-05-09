@@ -23,7 +23,7 @@ class _DashboardState extends State<Dashboard> {
           title: " Scanner",
           colors: AppColor.card1,
           icon: Icons.qr_code_scanner_outlined,
-          onPressed: () {
+          onPressed: () async {
             CommonWidgets.push(context, QrScreen());
           },
         ),
