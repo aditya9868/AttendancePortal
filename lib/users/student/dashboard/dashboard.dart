@@ -27,6 +27,15 @@ class _DashboardState extends State<Dashboard> {
             CommonWidgets.push(context, QrScreen());
           },
         ),
+        DashboardCard(
+          subtitle: "View",
+          title: "Attendance",
+          colors: AppColor.card2,
+          icon: Icons.grading_outlined,
+          onPressed: () async {
+            CommonWidgets.push(context, ViewAttendanceStudent());
+          },
+        ),
       ],
     );
   }

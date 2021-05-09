@@ -23,6 +23,7 @@ dependencies:
   encrypt: ^5.0.0
   qr_code_scanner: ^0.4.0
   permission_handler: ^7.1.0
+  syncfusion_flutter_calendar: ^19.1.59
 
 
 dev_dependencies:

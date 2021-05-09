@@ -17,6 +17,10 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider.value(
           value: Credential(),
         ),
+        ChangeNotifierProxyProvider<Credential, ViewAttendanceStudentProvider>(
+            create: (context) => ViewAttendanceStudentProvider(),
+            update: (context, cred, _) =>
+                ViewAttendanceStudentProvider(cred: cred))
       ],
       child: Consumer<Credential>(
         builder: (context, cred, _) {
