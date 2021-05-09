@@ -11,6 +11,7 @@ class _ViewAttendanceStudentState extends State<ViewAttendanceStudent> {
   var _init = true;
   var isLoading = true;
   List<ViewCalendar> listofDates = [];
+  Attended attend = Attended();
   @override
   Future<void> didChangeDependencies() async {
     super.didChangeDependencies();
@@ -22,6 +23,9 @@ class _ViewAttendanceStudentState extends State<ViewAttendanceStudent> {
       final list = await Provider.of<ViewAttendanceStudentProvider>(context,
               listen: false)
           .getAttendance();
+      final attended = await Provider.of<ViewAttendanceStudentProvider>(context,
+              listen: false)
+          .getTotalAttendance();
       setState(() {
         listofDates.addAll(list);
         isLoading = false;

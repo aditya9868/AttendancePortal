@@ -3,6 +3,7 @@ import 'package:attend/index.dart';
 class Credential with ChangeNotifier {
   final FirebaseFirestore _firebaseFirestore = FirebaseFirestore.instance;
   String userName;
+  UserModel userCredential = UserModel();
 
   bool get isLogin {
     if (userName == null)
@@ -28,7 +29,7 @@ class Credential with ChangeNotifier {
     final data =
         json.decode(prefs.getString('userData')) as Map<String, Object>;
     userName = data['userName'];
-
+    await getuser();
     notifyListeners();
     return true;
   }
@@ -41,13 +42,14 @@ class Credential with ChangeNotifier {
     notifyListeners();
   }
 
-  Stream<UserModel> get getusermsg {
-    return _firebaseFirestore
-        .collection("users")
-        .doc(userName)
-        .snapshots()
-        .map((DocumentSnapshot groupdoc) {
-      return UserModel.fromJson(groupdoc.data());
-    });
+  Future<UserModel> getuser() async {
+    try {
+      final rawRes = await _firebaseFirestore
+          .collection("users")
+          .doc(userName.split('@').first)
+          .get();
+      userCredential = UserModel.fromJson(rawRes);
+    } catch (e) {
+    }
   }
 }

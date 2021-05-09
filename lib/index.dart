@@ -49,4 +49,6 @@ export 'package:attend/users/student/qr_scanner/qr-scanner.dart';
 //b. ViewAttendance
 export 'package:attend/users/student/view-attendance/view-attendance.dart';
 export 'package:attend/users/student/view-attendance/view-attendance-provider.dart';
+export 'package:attend/users/student/view-attendance/model/attendance-model.dart';
+export 'package:attend/users/student/view-attendance/model/subject-model.dart';
 
