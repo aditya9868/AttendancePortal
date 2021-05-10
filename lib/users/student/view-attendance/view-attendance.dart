@@ -39,7 +39,7 @@ class _ViewAttendanceStudentState extends State<ViewAttendanceStudent> {
       isLoading: isLoading,
       padding: const EdgeInsets.all(0),
       appBar: CustomAppBar(
-        text: "Attendance",
+        text: "View Attendance",
       ),
       children: [
         Expanded(
