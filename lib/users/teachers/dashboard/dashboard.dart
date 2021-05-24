@@ -12,7 +12,7 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
   Widget build(BuildContext context) {
     return CustomScaffold(
       appBar: CustomAppBar(
-        text: "TeacherDashboard",
+        text: "Dashboard",
         showPrefix: false,
       ),
       padding: const EdgeInsets.symmetric(vertical: 10),

@@ -1,4 +1,5 @@
 import 'package:attend/index.dart';
+import 'package:attend/users/teachers/dashboard/dashboard.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -35,7 +36,9 @@ class MyApp extends StatelessWidget {
                   ),
                   routes: {},
                   home: cred.isLogin
-                      ? Dashboard() //change to dashboard
+                      ? cred.userCredential.role == "student"
+                          ? Dashboard()
+                          : TeacherDashboard() //change to dashboard
                       : snapshot.connectionState == ConnectionState.waiting
                           ? LoadingScreen()
                           : Login(),
