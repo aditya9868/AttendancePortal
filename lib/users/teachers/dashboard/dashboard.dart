@@ -36,6 +36,15 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
             CommonWidgets.push(context, ViewAttendanceStudent());
           },
         ),
+        DashboardCard(
+          subtitle: "Mark",
+          title: "Attendance",
+          colors: AppColor.card3,
+          icon: Icons.grading_outlined,
+          onPressed: () async {
+            CommonWidgets.push(context, ViewAttendanceStudent());
+          },
+        ),
       ],
     );
   }
