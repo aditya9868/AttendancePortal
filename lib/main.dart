@@ -20,12 +20,11 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProxyProvider<Credential, ViewAttendanceStudentProvider>(
             create: (context) => ViewAttendanceStudentProvider(),
-            update: (context, cred, _) =>
-                ViewAttendanceStudentProvider(cred: cred))
+            update: (context, cred, _) => ViewAttendanceStudentProvider(cred: cred))
       ],
       child: Consumer<Credential>(
         builder: (context, cred, _) {
-          // cred.logout();
+          //cred.logout();
           return FutureBuilder<bool>(
               future: cred.tryAutoLogin(),
               builder: (context, snapshot) {

@@ -27,10 +27,7 @@ class _LoginState extends State<Login> {
             width: double.infinity,
             child: Text(
               "Hello there!",
-              style: TextStyle(
-                  fontSize: 35,
-                  fontWeight: FontWeight.w600,
-                  fontFamily: "Raleway"),
+              style: TextStyle(fontSize: 35, fontWeight: FontWeight.w600, fontFamily: "Raleway"),
             )),
         SizedBox(
           height: 12,
@@ -39,10 +36,7 @@ class _LoginState extends State<Login> {
             width: double.infinity,
             child: Text(
               "Welcome back",
-              style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.w300,
-                  fontFamily: "Raleway"),
+              style: TextStyle(fontSize: 30, fontWeight: FontWeight.w300, fontFamily: "Raleway"),
             )),
         SizedBox(
           height: 5,
@@ -86,22 +80,19 @@ class _LoginState extends State<Login> {
             final cred = Provider.of<Credential>(context, listen: false);
             FocusScope.of(context).requestFocus(FocusNode());
             if (password.text == "" || username.text == "") {
-              CommonWidgets.showToast(context, "Enter username & Password/OTP",
-                  duration: 3);
+              CommonWidgets.showToast(context, "Enter username & Password/OTP", duration: 3);
               return;
             }
             setState(() {
               _isLoading = true;
             });
-            final response =
-                await Provider.of<LoginProvider>(context, listen: false).login(
-                    LoginModel(
-                        password: password.text, userName: username.text));
+            final response = await Provider.of<LoginProvider>(context, listen: false)
+                .login(LoginModel(password: password.text, userName: username.text));
 
             setState(() {
               _isLoading = false;
             });
-            CommonWidgets.showToast(context, response.message);
+            CommonWidgets.showToast(context, response.message, duration: 4);
             if (response.isSuccess) {
               await cred.storeUserData(username.text);
               //Navigate
@@ -115,30 +106,6 @@ class _LoginState extends State<Login> {
             child: SizedBox(
               height: 1,
             )),
-      ],
-    );
-    return Stack(
-      children: [
-        Scaffold(
-          body: SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 10),
-              child: Column(
-                children: [],
-              ),
-            ),
-          ),
-        ),
-        _isLoading
-            ? Container(
-                height: double.infinity,
-                width: double.infinity,
-                color: Colors.black45,
-                child: Center(
-                  child: CircularProgressIndicator(),
-                ),
-              )
-            : Container()
       ],
     );
   }
